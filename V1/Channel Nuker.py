@@ -10,7 +10,7 @@ client = discord.Client()
 async def on_connect():
     channel = client.get_channel(int(id))
     if channel is not None:
-        async for element in channel.history(limit=999999999999999999999999999999999999999999999999999999999999999999999):
+        async for element in channel.history():
             try:
                 await element.delete()
             except:
@@ -20,7 +20,7 @@ async def on_connect():
         try:
             user = client.get_user(int(id))
             channel = await user.create_dm()
-            async for element in channel.history(limit=999999999999999999999999999999999999999999999999999999999999999999999):
+            async for element in channel.history():
                 try:
                     await element.delete()
                 except:
